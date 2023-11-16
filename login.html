@@ -13,19 +13,44 @@
             <table frame="box" cellspacing="10">
                 <tr>
                     <td>Login</td>
-                    <td><input type="text" size="25"></td>
+                    <td>
+                        <input type="email" placeholder="Enter email"  size="25"  id="email">
+                    </td>
                 </tr>
                 <tr>
                     <td>Password</td>
-                    <td><input type="password" size="25"></td>
+                    <td>
+                        <input type="password" placeholder="Enter password"   size="25"  id="password">
+                    </td>
                 </tr>
                 <tr>
-                    <td colspan ="2" align="center"><input type="submit" value="SUBMIT">
+                    <td colspan ="2" align="center">
+                    <input type="submit" value="SUBMIT"  onclick="func()" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="reset" value="RESET"></td>
                 </tr>
             </table>
+
+            <script>
+                function func(){
+                    var email = document.getElementById('email').value;
+                    var pass = document.getElementById('password').value;
+                    if(email=='Tiwari@gmail.com' && pass== 123456){
+                        alert("success full ! ");
+                        window.location.assign('attendance system.html');
+                    }
+                    else{
+                        alert("Wrong entry ");
+                    }
+                }
+        
+            </script>
+
+
+           
         </form>
     </center>
+
+   
 </body>
 </html>
