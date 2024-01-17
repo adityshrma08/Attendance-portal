@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Vivekanand</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('input[type="checkbox"]').click(function () {
+          // Uncheck all checkboxes in the same row
+          $(this).closest('tr').find('input[type="checkbox"]').not(this).prop('checked', false);
+        });
+      });
+    </script>
+
+</head>
+<body>
+
+    <section class="attendance">
+        <div class="attendance-list">
+          <h1>Vivekanand</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Room No</th>
+                <th>Name</th>
+                <th>Floor</th>
+                <th>Date</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>202</td>
+                <td>gautam Agrahari</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>203</td>
+                <td>Sonu Kumar</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>204</td>
+                <td>Rishu Raj</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>205</td>
+                <td>Yash Bhardwaj</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>301</td>
+                <td>Saurabh Kumar</td>
+                <td>4th</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>302</td>
+                <td>Aniket</td>
+                <td>4th</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>303</td>
+                <td>Mukund chaudhary</td>
+                <td>4th</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>304</td>
+                <td>Abhishek Shakya</td>
+                <td>4th</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>305</td>
+                <td>Adarsh Mishra</td>
+                <td>4th</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>306</td>
+                <td>Gaurav Gupta</td>
+                <td>4th</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>401</td>
+                <td>Anupam Mishra</td>
+                <td>5th</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+
+
+
+</body>
+</html>

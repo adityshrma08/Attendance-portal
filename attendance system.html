@@ -6,6 +6,18 @@
     <link rel="stylesheet" href="style.css" />
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('input[type="checkbox"]').click(function () {
+          // Uncheck all checkboxes in the same row
+          $(this).closest('tr').find('input[type="checkbox"]').not(this).prop('checked', false);
+        });
+      });
+    </script>
+
+
   </head>
   <body>
     <div class="container">
@@ -15,22 +27,62 @@
             <img src="https://yt3.googleusercontent.com/ytc/APkrFKZGWzOv1qDTV8slp_SJsWzB2ziqfujVXKpVO5mocA=s900-c-k-c0x00ffffff-no-rj">
             <span class="nav-item">Admin</span>
           </a></li>
-          <li><a href="#">
-            <i class="fas fa-menorah"></i>
+          <li><a href="#" class="logo">
+            <img src="home-vector-icon.jpg">
             <span class="nav-item">Dashboard</span>
           </a></li>
-          <li><a href="#">
-            <i class="fas fa-comment"></i>
-            <span class="nav-item">Change Hostel</span>
-          </a></li>
+
           
-          <li><a href="#">
-            <i class="fas fa-chart-bar"></i>
+          
+<!--   
+              <select>
+            <option>
+            <span class="nav-item">Change Hostel</span>
+          </option>
+          <option>
+            <span class="nav-item">Tagore</span>
+          </option>
+          <option>
+            <span class="nav-item">Aryabhatt</span>
+          </option>
+          <option>
+            <span class="nav-item">Vivekanand</span>
+          </option>
+          <option>
+            <span class="nav-item">Gargi</span>
+          </option>
+          <option>
+            <span class="nav-item">Saraswati</span>
+          </option>
+
+
+          </select>  -->
+        
+
+         <div class="dropdown">
+          <li><a href="#" class="logo">
+            <img src="Home-Swap-Logo.png">
+          <button class="dropbtn" onclick="myFunction()">Select Hostel 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">CV Raman</a>
+            <a href="http://127.0.0.1:5500/Tagore.html">Tagore</a>
+            <a href="http://127.0.0.1:5500/Gargi.html">Gargi</a>
+            <a href="http://127.0.0.1:5500/Vivekanand.html">Vivekanand</a>
+          </div>
+        </a> </li>
+        </div> 
+        
+
+
+          <li><a href="#" class="logo">
+            <img src="attendance logo.png">
             <span class="nav-item">Attendance</span>
           </a></li>
-          <li><a href="#">
-            <i class="fas fa-cog"></i>
-            <span class="nav-item">Setting</span>
+          <li><a href="#" class="logo">
+            <img src="settings.png">
+            <span class="nav-item">Settings</span>
           </a></li>
   
           <li><a href="#" class="logout">
@@ -42,7 +94,7 @@
   
   
   
-        <section class="attendance">
+        <!-- <section class="attendance"> -->
           <div class="attendance-list">
             <h1>CV Raman Hostel</h1>
             <table class="table">
@@ -63,8 +115,8 @@
                   <td>Anurag Chauhan</td>
                   <td>2nd</td>
                   <td>03-11-23</td>
-                  <td><input type="checkbox"></td>
-                  <td><input type="checkbox"></td>
+                  <td><input type="checkbox" name="chk" onclick="return myfunc()"></td>
+                  <td><input type="checkbox" name="chk" onclick="return myfunc()"></td>
                   <td><button>View</button></td>
                 </tr>
                 <tr>
@@ -169,10 +221,14 @@
               </tbody>
             </table>
           </div>
-        </section>
-      </section>
+        <!-- </section> -->
+      <!-- </section> -->
     </div>
   
+    <script src="attendance system.js"></script>
+      
+
+
   </body>
   </html>
   </span>

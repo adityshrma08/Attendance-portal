@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Gargi</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('input[type="checkbox"]').click(function () {
+          // Uncheck all checkboxes in the same row
+          $(this).closest('tr').find('input[type="checkbox"]').not(this).prop('checked', false);
+        });
+      });
+    </script>
+
+</head>
+<body>
+
+    <section class="attendance">
+        <div class="attendance-list">
+          <h1>Gargi Hostel</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Room No</th>
+                <th>Name</th>
+                <th>Floor</th>
+                <th>Date</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>Akshama Chauhan</td>
+                <td>2nd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>Arpita Maurya</td>
+                <td>2nd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td>Anvita Khator</td>
+                <td>2nd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>104</td>
+                <td>Sejal Gupta</td>
+                <td>2nd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>105</td>
+                <td>Aditi Sharma</td>
+                <td>2nd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>201</td>
+                <td>Anushka Sharma</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>202</td>
+                <td>Alia Bhatt</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>203</td>
+                <td>Sapna Chaudhary</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>204</td>
+                <td>Priyanka Chopra</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>205</td>
+                <td>Deepika Padukone</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+
+              <tr>
+                <td>206</td>
+                <td>Taapsee Pannu</td>
+                <td>3rd</td>
+                <td>03-11-23</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><button>View</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+    
+
+
+    
+
+
+
+
+
+</body>
+</html>

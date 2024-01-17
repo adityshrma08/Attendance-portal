@@ -13,7 +13,6 @@ body {
     background-color: #ffffff;
 }
 
-
 .image-container {
     width: 49%; /* Ensure the image doesn't exceed its container */
     height: auto; /* Maintain aspect ratio */
