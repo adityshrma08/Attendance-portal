@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 *{
-  margin: 0;
-  padding: 0;
+  margin:0px;
+  padding: 0px;
   outline: none;
   border: none;
   text-decoration: none;
@@ -9,7 +9,7 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  background: rgb(226, 226, 226);
+  background: rgb(218, 214, 214);
 }
 
 nav{
@@ -20,7 +20,7 @@ nav{
   left: 0;
   width: 70px;
   /* width: 280px; */
-  background: #fff;
+  background: #fff9f9;
   overflow: hidden;
   transition: 1s;
 }
@@ -140,6 +140,7 @@ a:hover i{
 .logout{
   position: absolute;
   bottom: 0;
+  left: -60px;
 }
 
 .logout i{
@@ -235,6 +236,7 @@ a:hover i{
 .attendance{
   margin-top: 20px;
   text-transform: capitalize;
+  margin-top: -0.5rem;
 }
 .attendance-list{
   width: 100%;
@@ -288,3 +290,62 @@ table thead tr{
   transition: 0.5rem;
 }
 
+.container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-top: 0px; /* Adjust as needed */
+}
+
+.image-box {
+  position: absolute;
+  display: block;
+}
+
+/* img {
+  width: 100%;
+  height: auto;
+  display: block;
+} */
+
+.text-box {
+  position: absolute;
+  margin-top: 2rem;
+  left: 20px;
+  transform: translate(0, -50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust the background color and opacity */
+  color: white;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 150%; /* Adjust the width of the text box */
+}
+
+
+.IMG12 {
+  display: block;
+  margin-left: 20px;
+  margin-right: auto;
+  margin-top: 4rem;
+  height: 540px;
+  width: 150%;
+  /* margin-bottom: 4rem; */
+  /* border: 8px groove black; */
+}
+#submitBtn{
+  float: right;
+  margin-right: 60px;
+  font-size: 25px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid greenyellow;
+  background-color: #c5ddde;
+  margin-top: -1.2rem;
+  
+}
+#submitBtn :hover{
+  transition: 0.5rem;
+  background: #4AD489;
+  color: #fff;
+}

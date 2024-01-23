@@ -6,13 +6,35 @@
     <link rel="stylesheet" href="style.css"/>
     <title>Tagore Boys Hostel</title>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
       $(document).ready(function () {
         $('input[type="checkbox"]').click(function () {
           // Uncheck all checkboxes in the same row
           $(this).closest('tr').find('input[type="checkbox"]').not(this).prop('checked', false);
         });
+        $('#submitBtn').click(function () {
+                // Check if each row has exactly one checkbox selected
+                var allRows = $('.table tbody tr');
+                var invalidRows = [];
+
+                allRows.each(function () {
+                    var checkboxesInRow = $(this).find('input[type="checkbox"]');
+                    var checkedCheckboxes = checkboxesInRow.filter(':checked');
+
+                    if (checkedCheckboxes.length !== 1) {
+                        // Record the row if not exactly one checkbox is checked
+                        invalidRows.push($(this).find('td:first').text());
+                    }
+                });
+
+                if (invalidRows.length === 0) {
+                    // No rows with incorrect checkbox selection, show success popup
+                    alert('Data submitted successfully!');
+                } else {
+                    // Some rows have incorrect checkbox selection, show error popup
+                    alert('Some rooms are left Please take attendance of room no ' + invalidRows.join(', '));
+                }
+            });
       });
     </script>
 
@@ -145,6 +167,9 @@
               
             </tbody>
           </table>
+          <div class="vertical-center">
+            <button id="submitBtn">Submit</button>
+             </div>
         </div>
       </section>
     </section>
