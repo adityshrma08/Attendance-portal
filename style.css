@@ -349,3 +349,15 @@ table thead tr{
   background: #4AD489;
   color: #fff;
 }
+
+#myInput {
+  background-image: url('searchicon.jpg');
+  background-position: 10px 10px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}

@@ -37,6 +37,26 @@
                 }
             });
       });
+
+      function myFunction(){
+        var input,filter, table,tr,td,i,txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for(i = 0;i<tr.length; i++){
+          td = tr[i].getElementsByTagName("td")[0];
+          if(td){
+            txtValue = td.textContent || td.innerText;
+            if(txtValue.toUpperCase().indexOf(filter) > -1){
+              tr[i].style.display = "";
+            }
+            else{
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
     </script>
 
 </head>
@@ -44,8 +64,10 @@
 
     <section class="attendance">
         <div class="attendance-list">
-          <h1>Gargi Hostel</h1>
-          <table class="table">
+          <h1  align="center" style="font-size: 35px;">Gargi Hostel</h1>
+          <input type="text" id="myInput" onkeyup="myFunction()"
+          placeholder="Search for room no.." title="Enter room no">
+          <table id="myTable" class="table">
             <thead>
               <tr>
                 <th>Room No</th>
