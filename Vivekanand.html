@@ -36,6 +36,23 @@
                     // Some rows have incorrect checkbox selection, show error popup
                     alert('Some rooms are left Please take attendance of room no ' + invalidRows.join(', '));
                 }
+
+                var presentRows = $('.table tbody tr td:nth-child(6) input:checked').parent().parent();
+            var absentRows = $('.table tbody tr td:nth-child(7) input:checked').parent().parent();
+
+            // Create separate tables for "Present" and "Absent"
+            var presentTable = $("<table></table>").addClass("table");
+            var absentTable = $("<table></table>").addClass("table");
+
+            presentRows.clone().appendTo(presentTable);
+            absentRows.clone().appendTo(absentTable);
+
+            // Open new tabs and write the tables to those tabs
+            var presentWindow = window.open("", "Present", "width=400,height=400");
+            presentWindow.document.write(presentTable.prop("outerHTML"));
+
+            var absentWindow = window.open("", "Absent", "width=400,height=400");
+            absentWindow.document.write(absentTable.prop("outerHTML"));
             });
       });
 
