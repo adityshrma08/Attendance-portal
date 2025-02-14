@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-left: 400px;
+            padding: 0;
+            background-image: url();
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .image-container {
+            width: 49%; /* Ensure the image doesn't exceed its container */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove extra space below the image */
+            margin: 0 auto; /* Center the image horizontally */
+            object-fit: cover;
+            position: absolute;
+            top: 50%; /* Align to the center vertically */
+            left: 38%; /* Align to the center horizontally */
+            transform: translate(-50%, -50%); /* Center the image precisely */
+        }
+
+        .login-container {
+            background-color: rgba(249, 249, 249, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(50, 36, 36, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 80%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #5b5555;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3ba040;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="KIET logo.png" alt="KIET Logo">
+    </div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return loginUser()">
+            <label for="username">Username:</label>
+            <input type="text" placeholder="Enter username" id="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter password" id="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Inline JavaScript -->
+    <script>
+        function loginUser() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+        
+            fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username.trim(), password: password.trim() }) // Trim spaces
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    sessionStorage.setItem("hostel_name", data.hostel); // Store hostel name
+                    window.location.href = "attendance.html"; // Redirect to attendance page
+                } else {
+                    alert(data.message); // Show error message if login fails
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        
+            return false; // Prevent form submission
+        }
+        
+        
+    </script>
+
+</body>
+</html>

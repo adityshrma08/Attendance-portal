@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warden Login - Hostel Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .login-container select,
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background: #1abc9c;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .login-container button:hover {
+            background: #16a085;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #1abc9c;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Warden Login</h2>
+
+        <!-- Hostel Selection Dropdown -->
+        <select id="hostel">
+            <option value="" disabled selected>Select Your Hostel</option>
+            <option value="CV Raman">CV Raman</option>
+            <option value="Chandragupt">Chandragupt</option>
+            <option value="Vivekanand">Vivekanand</option>
+            <option value="Gargi">Gargi</option>
+            <option value="Saraswati">Saraswati</option>
+        </select>
+
+        <!-- Login Fields -->
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+        <p class="error-message" id="error-msg">Invalid credentials! Try again.</p>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        function login() {
+            var hostel = document.getElementById("hostel").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMsg = document.getElementById("error-msg");
+
+            if (!hostel) {
+                errorMsg.innerText = "Please select your hostel!";
+                errorMsg.style.display = "block";
+                return;
+            }
+
+            var validCredentials = {
+                "CV Raman": { "warden1": "password123" },
+                "Chandragupt": { "warden2": "securepass" },
+                "Vivekanand": { "warden3": "admin@123" },
+                "Gargi": { "warden4": "gargi2024" },
+                "Saraswati": { "warden5": "saraswati2024" }
+            };
+
+            if (validCredentials[hostel] && validCredentials[hostel][username] === password) {
+                window.location.href = "warden_dashboard.html?hostel=" + encodeURIComponent(hostel); // Redirect with hostel info
+            } else {
+                errorMsg.innerText = "Invalid credentials!";
+                errorMsg.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

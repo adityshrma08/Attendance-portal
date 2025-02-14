@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Attendance</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <section class="attendance">
+        <div class="attendance-list">
+            <h1 align="center" style="font-size: 35px;">CV Raman Hostel</h1>
+            <input type="text" id="myInput" placeholder="Search for room no.." title="Enter room no">
+            
+            <table id="myTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Room No</th>
+                        <th>Name</th>
+                        <th>Floor</th>
+                        <th>Date</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted here dynamically -->
+                </tbody>
+            </table>
+
+            <div class="vertical-center">
+                <button id="submitBtn">Submit</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            // Fetch student data from backend
+            function loadStudents() {
+                $.ajax({
+                    url: "http://localhost:5000/students",
+                    type: "GET",
+                    success: function (data) {
+                        let tableBody = $("#myTable tbody");
+                        tableBody.empty(); // Clear existing rows
+
+                        data.forEach((student) => {
+                            tableBody.append(`
+                                <tr>
+                                    <td>${student.room_no}</td>
+                                    <td>${student.name}</td>
+                                    <td>${student.floor}</td>
+                                    <td>${student.date}</td>
+                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox"></td>
+                                    <td><button>View</button></td>
+                                </tr>
+                            `);
+                        });
+                    },
+                    error: function () {
+                        alert("Failed to load students.");
+                    }
+                });
+            }
+
+            // Load students when the page loads
+            loadStudents();
+
+            // Checkbox logic: Allow only one checkbox per row
+            $("body").on("click", 'input[type="checkbox"]', function () {
+                $(this).closest("tr").find('input[type="checkbox"]').not(this).prop("checked", false);
+            });
+
+            // Submit button logic
+            $("#submitBtn").click(function () {
+                var allRows = $(".table tbody tr");
+                var invalidRows = [];
+
+                allRows.each(function () {
+                    var checkboxesInRow = $(this).find('input[type="checkbox"]');
+                    var checkedCheckboxes = checkboxesInRow.filter(":checked");
+
+                    if (checkedCheckboxes.length !== 1) {
+                        invalidRows.push($(this).find("td:first").text());
+                    }
+                });
+
+                if (invalidRows.length === 0) {
+                    alert("Data submitted successfully!");
+                } else {
+                    alert("Some rooms are left. Please take attendance of room no " + invalidRows.join(", "));
+                }
+            });
+
+            // Search function
+            $("#myInput").on("keyup", function () {
+                var filter = $(this).val().toUpperCase();
+                $("#myTable tbody tr").each(function () {
+                    var roomNo = $(this).find("td:first").text();
+                    $(this).toggle(roomNo.toUpperCase().indexOf(filter) > -1);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

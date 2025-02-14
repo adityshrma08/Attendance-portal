@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Hostels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #67abef, #375ea1);
+            padding: 40px;
+            text-align: center;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .hostels {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hostel-card {
+            background: white;
+            padding: 20px;
+            width: 280px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            font-weight: 600;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Light Pastel Borders */
+        .hostel-card:nth-child(1) { border-color: #ffb3ba; } /* Light Red */
+        .hostel-card:nth-child(2) { border-color: #ffdfba; } /* Light Orange */
+        .hostel-card:nth-child(3) { border-color: #baffc9; } /* Light Green */
+        .hostel-card:nth-child(4) { border-color: #bae1ff; } /* Light Blue */
+        .hostel-card:nth-child(5) { border-color: #e0bbff; } /* Light Purple */
+
+        .hostel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .hostel-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .hostel-card p {
+            font-size: 16px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hostels {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hostel-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Available Hostels</h2>
+    <div class="hostels">
+        <a href="cv_raman.html" class="hostel-card">
+            <h3>CV Raman Hostel</h3>
+            <p>Boys Hostel</p>
+        </a>
+        <a href="chandragupt.html" class="hostel-card">
+            <h3>Chandragupt Hostel</h3>
+            <p>Boys Hostel</p>
+        </a>
+        <a href="vivekanand.html" class="hostel-card">
+            <h3>Vivekanand Hostel</h3>
+            <p>Boys Hostel</p>
+        </a>
+        <a href="gargi.html" class="hostel-card">
+            <h3>Gargi Hostel</h3>
+            <p>Girls Hostel</p>
+        </a>
+        <a href="saraswati.html" class="hostel-card">
+            <h3>Saraswati Hostel</h3>
+            <p>Girls Hostel</p>
+        </a>
+        <a href="tagore.html" class="hostel-card">
+            <h3>Tagore Boys Hostel</h3>
+            <p>Boys Hostel</p>
+        </a>
+        <a href="aryabhatt.html" class="hostel-card">
+            <h3>Aryabhatt Hostel</h3>
+            <p>Boys Hostel</p>
+        </a>
+        <a href="sarojini.html" class="hostel-card">
+            <h3>Sarojini Hostel</h3>
+            <p>Girls Hostel</p>
+        </a>
+    </div>
+
+</body>
+</html>

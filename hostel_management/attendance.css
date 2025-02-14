@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+*{
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  background: rgb(218, 214, 214);
+}
+
+.container {
+  display: flex;
+}
+
+.main{
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+
+.attendance-list{
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.table{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+
+table thead tr{
+  color: #fff;
+  background: #34AF6D;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table th,
+.table td{
+  padding: 12px 15px;
+}
+
+.table tbody tr{
+  border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:nth-of-type(odd){
+  background: #f3f3f3;
+}
+
+.table tbody tr.active{
+  font-weight: bold;
+  color: #4AD489;
+}
+
+.table tbody tr:last-of-type{
+  border-bottom: 2px solid #4AD489;
+}
+
+
+  #submitAttendance {
+    float: right;
+    margin-right: 70px;
+    font-size: 25px;
+    padding: 2px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid greenyellow;
+    background-color: #c5ddde;
+    margin-top: -1.2rem;
+    cursor: pointer;
+}
+
+
+#submitAttendance:hover {
+    transition: 0.5s;
+    background: #4AD489;
+    color: #fff;
+    border-color: #4AD489; /* Optional: Add border color change */
+}
+
+#myInput {
+  background-image: url('searchicon.jpg');
+  background-position: 10px 10px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+/* Apply button-like styling to the View link */
+.view-link {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #4AD489;
+    text-decoration: none; /* Removes underline */
+    transition: 0.5s ease-in-out;
+}
+
+.view-link:hover {
+    background: #4AD489;
+    color: #fff;
+    border-color: #4AD489;
+}

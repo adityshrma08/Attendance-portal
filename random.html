@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            color: white;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 270px;
+            height: 100vh;
+            background: rgba(44, 62, 80, 0.8);
+            backdrop-filter: blur(10px);
+            padding-top: 20px;
+            position: fixed;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s ease-in-out;
+            border-radius: 0 20px 20px 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #1abc9c;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li:hover {
+            background: rgba(26, 188, 156, 0.7);
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 400;
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 270px;
+            padding: 30px;
+            width: calc(100% - 270px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: url('https://source.unsplash.com/1600x600/?hostel,dormitory') no-repeat center/cover;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+        }
+
+        .hero span {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Facilities Section */
+        .facilities {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            transition: 0.3s ease-in-out;
+        }
+
+        .facilities h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .facilities ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .facilities ul li {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 400;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .facilities ul li:hover {
+            background: rgba(26, 188, 156, 0.7);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button Animation */
+        .sidebar ul li a,
+        .sidebar ul li {
+            transition: all 0.3s ease;
+        }
+
+        .sidebar ul li:hover a {
+            transform: translateX(5px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>Hostel System</h2>
+        <ul>
+            <li><a href="#">🏠 Home</a></li>
+            <li onclick="toggleFacilities()">🏢 Facilities</li>
+            <li><a href="hostels.html" target="_blank">🏡 View Hostels</a></li>
+            <li><a href="warden_access.html">🔑 Warden Login</a></li>
+
+
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <span>Welcome to KIET Group of Institutions</span>
+        </div>
+
+        <!-- Facilities Section (Hidden by Default) -->
+        <div id="facilities" class="facilities">
+            <h2>Hostel Facilities</h2>
+            <ul>
+                <li>🏠 Well-furnished rooms</li>
+                <li>📶 High-speed Wi-Fi</li>
+                <li>🍽️ Nutritious food</li>
+                <li>🏋️ Gym & sports</li>
+                <li>🩺 24/7 medical assistance</li>
+                <li>🛡️ CCTV Security</li>
+                <li>📚 Study areas</li>
+                <li>🚰 24/7 water & electricity</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleFacilities() {
+            var facilitiesSection = document.getElementById("facilities");
+            facilitiesSection.style.display = (facilitiesSection.style.display === "none" || facilitiesSection.style.display === "") ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>

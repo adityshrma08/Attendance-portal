@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="attendance.css" />
+    <title>Hostel Attendance</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const hostelName = sessionStorage.getItem("hostel_name"); // Get warden's hostel name from sessionStorage
+        
+            if (!hostelName) {
+                alert("Unauthorized access! Please log in.");
+                window.location.href = "login.html"; // Redirect to login if no hostel name is found
+                return;
+            }
+        
+            $("h1").text(`${hostelName} Attendance`); // Set hostel name dynamically in title
+        
+            fetch(`http://localhost:5000/students?hostel_name=${encodeURIComponent(hostelName)}`)
+                .then(response => response.json())
+                .then(data => {
+                    let tableBody = $('#studentsTable tbody');
+                    tableBody.empty();
+        
+                    data.forEach(student => {
+                        let row = `<tr data-id="${student.id}">
+                            <td>${student.room_no}</td>
+                            <td>${student.name}</td>
+                            <td>${student.floor}</td>
+                            <td>${new Date().toLocaleDateString()}</td>
+                            <td><input type="checkbox" class="present" name="attendance"></td>
+                            <td><input type="checkbox" class="absent" name="attendance"></td>
+                            <td><a href="history.html?student_id=${student.id}&name=${encodeURIComponent(student.name)}" class="view-link" target="_blank">View</a></td>
+                        </tr>`;
+                        tableBody.append(row);
+                    });
+        
+                    // Ensure only one checkbox (Present/Absent) is checked per row
+                    $('input[type="checkbox"]').on('change', function () {
+                        let row = $(this).closest('tr');
+                        row.find('input[type="checkbox"]').not(this).prop('checked', false);
+                    });
+                })
+                .catch(error => console.error('Error fetching students:', error));
+        
+            // Submit attendance data
+            $('#submitAttendance').click(function () {
+                let attendanceData = [];
+                const hostelName = sessionStorage.getItem("hostel_name"); // Get warden’s hostel name
+            
+                if (!hostelName) {
+                    alert("Error: No hostel name found. Please log in again.");
+                    window.location.href = "login.html"; // Redirect to login
+                    return;
+                }
+            
+                $('#studentsTable tbody tr').each(function () {
+                    let row = $(this);
+                    let studentId = row.attr('data-id');
+                    let status = row.find('.present').prop('checked') ? 'Present' :
+                                 row.find('.absent').prop('checked') ? 'Absent' : null;
+                    
+                    if (studentId && status) {
+                        attendanceData.push({
+                            student_id: studentId,
+                            date: new Date().toISOString().split('T')[0],
+                            status: status,
+                            hostel_name: hostelName // Attach warden’s hostel
+                        });
+                    }
+                });
+            
+                if (attendanceData.length === 0) {
+                    alert("No attendance marked. Please select at least one student.");
+                    return;
+                }
+            
+                fetch('http://localhost:5000/save-attendance', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(attendanceData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                })
+                .catch(error => console.error('❌ Error saving attendance:', error));
+            });
+            
+        
+            // Search function to filter table rows based on room number
+            function myFunction() {
+                let input = document.getElementById('myInput');
+                let filter = input.value.toUpperCase();
+                let table = document.getElementById('studentsTable');
+                let tr = table.getElementsByTagName('tr');
+                
+                for (let i = 1; i < tr.length; i++) { // Skip table header
+                    let td = tr[i].getElementsByTagName('td')[0]; // Get Room No column
+                    if (td) {
+                        let txtValue = td.textContent || td.innerText;
+                        tr[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
+                    }
+                }
+            }
+        
+            // Attach search function to the input field
+            document.getElementById('myInput').addEventListener('keyup', myFunction);
+        });
+        
+    
+    </script>
+    
+</head>
+<body>
+
+    <section class="attendance">
+        <div class="attendance-list">
+            <h1 align="center" style="font-size: 35px;">Hostel Attendance</h1>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for room no.." title="Enter room no">
+            <table id="studentsTable" class="table">
+                <thead>
+                    <tr>
+                        <th>Room No</th>
+                        <th>Name</th>
+                        <th>Floor</th>
+                        <th>Date</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted dynamically -->
+                </tbody>
+            </table>
+            <button id="submitAttendance">Submit</button>
+        </div>
+    </section>
+
+</body>
+</html>

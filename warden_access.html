@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warden Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+        }
+
+        .access-container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .access-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .access-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .access-container button {
+            width: 100%;
+            padding: 12px;
+            background: #1abc9c;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        .access-container button:hover {
+            background: #16a085;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #1abc9c;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="access-container">
+        <h2>Warden Access</h2>
+        <p>Enter the access code to proceed</p>
+        <input type="password" id="accessCode" placeholder="Enter Access Code">
+        <button onclick="checkAccess()">Submit</button>
+        <p class="error-message" id="errorMsg">Invalid Access Code!</p>
+        <a href="random.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        function checkAccess() {
+            const correctCode = "WARDEN123";
+            const enteredCode = document.getElementById("accessCode").value;
+    
+            if (enteredCode === correctCode) {
+                sessionStorage.setItem("wardenAuthenticated", "true"); // Store authentication state
+                window.location.href = "warden_login.html"; // Redirect
+            } else {
+                document.getElementById("errorMsg").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
