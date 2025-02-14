@@ -2,15 +2,20 @@ function loginUser() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    // Perform authentication logic here (e.g., check against a database)
+    fetch('http://localhost:5000/login', { // Send request to the backend for login
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, password: password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            window.location.href = "attendance system.html"; // Redirect on success
+        } else {
+            alert(data.message); // Show error message if login fails
+        }
+    })
+    .catch(error => console.error('Error:', error));
 
-    // For now, let's just redirect to another page
-    if (username === "Tiwari" && password === "1234567") {
-        window.location.href = "attendance system.html";
-    } else {
-        alert("Invalid username or password. Please try again.");
-    }
-
-    // Prevent the form from submitting
-    return false;
+    return false; // Prevent form submission
 }

@@ -36,7 +36,7 @@ nav:hover{
   text-align: center;
   display: flex;
   margin: 10px 0 0 10px;
-  padding-bottom: 3rem;
+  padding-bottom: 1.5rem;
 }
 
 
@@ -84,10 +84,28 @@ a:hover i{
   transition: 0.5s;
 }
 
+/* Dropdown container */
 .dropdown {
-  float: left;
-  overflow: hidden;
+  display: inline-block;
+ 
+  position: relative; /* Ensures positioning inside navbar */
 }
+
+.dropdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Ensures it takes the correct width */
+  padding: 10px;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+/* Style the dropdown button */
 .dropdown .dropbtn {
   font-size: 17px;    
   border: none;
@@ -98,36 +116,53 @@ a:hover i{
   font-family: inherit;
   margin: 0;
   cursor: pointer;
+  display: flex;
+  align-items: center; /* Align icon and text properly */
+  gap: 8px; /*Space between icon and text*/
 }
+
+
+
+/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
+  left: 0; /* Align to button */
   background-color: #e1dddd;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000; /* Ensure it appears above other elements */
+  border-radius: 5px;
+  overflow: hidden; /* Ensures smooth rounded corners */
 }
 
-
+/* Style dropdown links */
 .dropdown-content a {
-  float: none;
   color: rgb(8, 4, 4);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: center;
+  transition: background 0.3s ease-in-out;
 }
 
-
-.dropdown:hover .dropbtn, .dropbtn:focus  {
-  background-color: #aeadad;
-  color: rgb(245, 232, 232);
-}
-
+/* Change background on hover */
 .dropdown-content a:hover {
   background-color: #918a8a;
   color: rgb(27, 22, 22);
 }
+
+/* Show the dropdown content when hovering over the button */
+/* .dropdown:hover .dropdown-content {
+  /* display: block; */
+
+
+/* Button hover effect */
+.dropdown:hover .dropbtn, .dropbtn:focus {
+  background-color: #aeadad;
+  color: rgb(245, 232, 232);
+}
+
 
 /* .dropdown:hover .dropdown-content {
   display: block;

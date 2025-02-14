@@ -1,99 +1,89 @@
-<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+<span style="font-family: verdana, geneva, sans-serif">
+  <!DOCTYPE html>
   <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Attendance Portal</title>
-    <link rel="stylesheet" href="style.css" />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <head>
+      <meta charset="UTF-8" />
+      <title>Attendance Portal</title>
+      <link rel="stylesheet" href="style.css" />
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('input[type="checkbox"]').click(function () {
-          // Uncheck all checkboxes in the same row
-          $(this).closest('tr').find('input[type="checkbox"]').not(this).prop('checked', false);
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      />
+
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $('input[type="checkbox"]').click(function () {
+            // Uncheck all checkboxes in the same row
+            $(this)
+              .closest("tr")
+              .find('input[type="checkbox"]')
+              .not(this)
+              .prop("checked", false);
+          });
         });
-      });
-    </script>
+      </script>
+    </head>
 
+    <body>
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a
+                href="http://127.0.0.1:5500/attendance%20system.html#"
+                class="logo"
+              >
+                <img src="KIET logo.png" />
+                <span class="nav-item">Admin</span>
+              </a>
+            </li>
+            <li>
+              <a href="http://127.0.0.1:5500/Dashboard.html" class="logo">
+                <img src="home-vector-icon.jpg" />
+                <span class="nav-item">Dashboard</span>
+              </a>
+            </li>
+            <div class="dropdown">
+              <div class="dropdown-container">
+                <img src="Home-Swap-Logo.png" class="logo-img" />
+                <button class="dropbtn" onclick="myFunction()">
+                  Select Hostel
+                  <i class="fa fa-caret-down"></i>
+                </button>
+              </div>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="http://127.0.0.1:5500/CV%20Raman.html">CV Raman</a>
+                <a href="http://127.0.0.1:5500/Tagore.html">Tagore</a>
+                <a href="http://127.0.0.1:5500/Gargi.html">Gargi</a>
+                <a href="http://127.0.0.1:5500/Vivekanand.html">Vivekanand</a>
+              </div>
+            </div>
+            
 
-  </head>
-  <body>
-    <div class="container">
-      <nav>
-        <ul>
-          <li><a href="http://127.0.0.1:5500/attendance%20system.html#" class="logo">
-            <img src="KIET logo.png">
-            <span class="nav-item">Admin</span>
-          </a></li>
-          <li><a href="http://127.0.0.1:5500/Dashboard.html" class="logo">
-            <img src="home-vector-icon.jpg">
-            <span class="nav-item">Dashboard</span>
-          </a></li>
-
-          
-        
-
-         <div class="dropdown">
-          <li><a href="#" class="logo">
-            <img src="Home-Swap-Logo.png">
-          <button class="dropbtn" onclick="myFunction()">Select Hostel 
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="http://127.0.0.1:5500/CV%20Raman.html">CV Raman</a>
-            <a href="http://127.0.0.1:5500/Tagore.html">Tagore</a>
-            <a href="http://127.0.0.1:5500/Gargi.html">Gargi</a>
-            <a href="http://127.0.0.1:5500/Vivekanand.html">Vivekanand</a>
-          </div>
-        </a> </li>
-        </div> 
-        
-
-
-          <li><a href="http://127.0.0.1:5500/Attendance.html" class="logo">
-            <img src="attendance logo.png">
-            <span class="nav-item">Attendance</span>
-          </a></li>
-          <li><a href="#" class="logo">
+            <li>
+              <a href="http://127.0.0.1:5500/Attendance.html" class="logo">
+                <img src="attendance logo.png" />
+                <span class="nav-item">Attendance</span>
+              </a>
+            </li>
+            <!-- <li><a href="#" class="logo">
             <img src="settings.png">
             <span class="nav-item">Settings</span>
-          </a></li>
-  
-          <li><a href="http://127.0.0.1:5500/login.html" class="logout">
-            <i class="fas fa-sign-out-alt"></i>
-            <span class="nav-item">Log out</span>
-          </a></li>
-        </ul>
-      </nav>
+          </a></li> -->
 
+            <li>
+              <a href="http://127.0.0.1:5500/login.html" class="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log out</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-
-      <div class="container">
-        
-        <div class="image-box">
-            <div class="text-box">
-                <h2>Welcome to KIET Group of Institutions</h2>
-            </div>
-            <img class="IMG12"  src="KIET college pic.webp"></img>
-            
-        </div>
-    </div>
-  
-
-
-
-
-    </div>
-
-
-  
-  
-    <script src="attendance system.js"></script>
-      
-
-
-  </body>
+      <script src="attendance system.js"></script>
+    </body>
   </html>
-  </span>
+</span>
